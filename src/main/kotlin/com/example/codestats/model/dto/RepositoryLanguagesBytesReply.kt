@@ -1,3 +1,5 @@
 package com.example.codestats.model.dto
 
-typealias RepositoryLanguagesBytesReply = Map<String, Long>
+import common.model.LanguageId
+
+typealias RepositoryLanguagesBytesReply = Map<LanguageId, Long>

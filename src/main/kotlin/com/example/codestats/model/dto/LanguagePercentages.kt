@@ -1,3 +1,5 @@
 package com.example.codestats.model.dto
 
-typealias LanguagePercentages = Map<String, Double>
+import common.model.LanguageId
+
+typealias LanguagePercentages = Map<LanguageId, Double>
