@@ -18,7 +18,7 @@ internal class APITest : AbstractSpringBootIntegrationTest() {
             .andExpect { MockMvcResultMatchers.status().is2xxSuccessful }
             .andReturn()
 
-        val expected = "{\"Ruby\":0.5,\"TypeScript\":0.2,\"Python\":0.3}"
+        val expected = "{\"Ruby\":0.5,\"Python\":0.3,\"TypeScript\":0.2}"
         val actual = mvcResult.response.contentAsString
         Assertions.assertEquals(expected, actual)
     }

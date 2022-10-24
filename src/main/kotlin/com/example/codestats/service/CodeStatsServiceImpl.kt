@@ -3,11 +3,9 @@ package com.example.codestats.service
 import com.example.codestats.model.dto.LanguagePercentages
 import com.example.codestats.repository.GitRepoDataRepository
 import common.model.LanguageId
-import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 
 @Service
-@Profile("!test")
 class CodeStatsServiceImpl(
     private val gitRepoDataRepository: GitRepoDataRepository
 ) : CodeStatsService {
