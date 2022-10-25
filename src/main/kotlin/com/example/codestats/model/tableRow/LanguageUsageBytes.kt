@@ -6,8 +6,8 @@ import org.springframework.data.annotation.PersistenceCreator
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 
-@Table("repository_language")
-data class RepositoryLanguage(
+@Table("language_usage_bytes")
+data class LanguageUsageBytes(
     @Id
     @Column("id")
     val id: Long,

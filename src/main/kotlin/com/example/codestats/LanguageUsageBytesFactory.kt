@@ -1,15 +1,15 @@
 package com.example.codestats
 
 import com.example.codestats.model.RepositoryId
-import com.example.codestats.model.tableRow.RepositoryLanguage
+import com.example.codestats.model.tableRow.LanguageUsageBytes
 
-object RepositoryLanguageFactory {
-    fun createRepositoryLanguage(
+object LanguageUsageBytesFactory {
+    fun createLanguageUsageBytes(
         repositoryId: RepositoryId,
         languageId: String,
         bytes: Long
-    ): RepositoryLanguage {
-        return RepositoryLanguage(
+    ): LanguageUsageBytes {
+        return LanguageUsageBytes(
             repositoryId = repositoryId,
             languageId = languageId,
             bytes = bytes

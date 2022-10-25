@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS prog_language(
     PRIMARY KEY (language_id)
 );
 
-CREATE TABLE IF NOT EXISTS repository_language(
+CREATE TABLE IF NOT EXISTS language_usage_bytes(
     id BIGINT NOT NULL AUTO_INCREMENT,
     repository_id BIGINT NOT NULL,
     language_id INT NOT NULL,
