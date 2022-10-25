@@ -17,11 +17,11 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	// implementation("org.springframework.boot:spring-boot-starter-jdbc")
+	implementation("org.springframework.boot:spring-boot-starter-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-	implementation("org.springframework.data:spring-data-mongodb:3.4.5")
+	implementation("org.springframework.data:spring-data-jdbc:2.4.5")
 	implementation("org.springframework.data:spring-data-commons:2.7.5")
-	implementation("org.mongodb:mongodb-driver-sync:4.7.2")
+	implementation("org.mariadb.jdbc:mariadb-java-client:3.0.6")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
