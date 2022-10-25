@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS repository_language(
     id BIGINT NOT NULL AUTO_INCREMENT,
     repository_id BIGINT NOT NULL,
     language_id INT NOT NULL,
+    bytes BIGINT NOT NULL,
     FOREIGN KEY (repository_id) REFERENCES repository (repository_id)
         ON DELETE CASCADE
         ON UPDATE RESTRICT,
