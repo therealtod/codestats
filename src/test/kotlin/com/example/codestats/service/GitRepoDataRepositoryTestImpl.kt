@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository
 @Repository
 @Profile("test")
 class GitRepoDataRepositoryTestImpl: GitRepoDataRepository {
-    override fun getLanguageBytes(): LanguageBytes {
+    override fun calculateLanguageBytes(): LanguageBytes {
         return mapOf(
             1L to mapOf(
                 "Ruby" to 50,

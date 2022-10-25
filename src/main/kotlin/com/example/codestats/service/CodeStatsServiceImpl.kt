@@ -10,7 +10,7 @@ class CodeStatsServiceImpl(
     private val gitRepoDataRepository: GitRepoDataRepository
 ) : CodeStatsService {
     override fun getLanguagePercentages(): LanguagePercentages {
-        val perRepoLanguageBytes = gitRepoDataRepository.getLanguageBytes()
+        val perRepoLanguageBytes = gitRepoDataRepository.calculateLanguageBytes()
 
         val totalBytes = perRepoLanguageBytes.flatMap { it.value.values }.sum().toDouble()
         val languageBytes = mutableMapOf<LanguageId, Long>()

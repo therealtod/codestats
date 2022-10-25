@@ -19,7 +19,7 @@ internal class CodeStatsServiceImplTest {
 
     @BeforeAll
     fun setUp() {
-        every { repository.getLanguageBytes() } returns mockData
+        every { repository.calculateLanguageBytes() } returns mockData
     }
 
     @Test
