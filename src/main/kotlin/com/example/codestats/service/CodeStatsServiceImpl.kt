@@ -2,7 +2,7 @@ package com.example.codestats.service
 
 import com.example.codestats.model.dto.LanguagePercentages
 import com.example.codestats.repository.GitRepoDataRepository
-import common.model.LanguageId
+import com.example.codestats.model.LanguageId
 import org.springframework.stereotype.Service
 
 @Service

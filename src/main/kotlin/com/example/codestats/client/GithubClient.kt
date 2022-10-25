@@ -1,4 +1,4 @@
-package client
+package com.example.codestats.client
 
 import com.example.codestats.model.dto.GithubOrgReposReply
 import com.example.codestats.model.dto.GithubRepoDetailsReply
