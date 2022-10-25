@@ -8,7 +8,7 @@ import java.net.URL
 interface GithubClient {
     fun getOrgRepositoriesSummary(orgId: String): GithubOrgReposReply
 
-    fun getRepositoryDetails(url: URL): GithubRepoDetailsReply
+    fun getRepositoryDetails(url: URL): GithubRepoDetailsReply?
 
-    fun getRepositoryLanguagesBytes(url: URL): RepositoryLanguagesBytesReply
+    fun getRepositoryLanguagesBytes(url: URL): RepositoryLanguagesBytesReply?
 }
