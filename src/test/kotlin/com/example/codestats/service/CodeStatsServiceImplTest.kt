@@ -1,6 +1,7 @@
 package com.example.codestats.service
 
-import com.example.codestats.repository.GitRepoDataRepository
+import com.example.codestats.model.tableRow.LanguageUsagePercentages
+import com.example.codestats.repository.GitHubRepoRepository
 import io.mockk.every
 import io.mockk.junit5.MockKExtension
 import io.mockk.mockk
@@ -14,18 +15,18 @@ import org.junit.jupiter.api.extension.ExtendWith
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class CodeStatsServiceImplTest {
 
-    private val repository: GitRepoDataRepository = mockk()
+    private val repository: GitHubRepoRepository = mockk()
     private val service = CodeStatsServiceImpl(repository)
 
     @BeforeAll
     fun setUp() {
-        every { repository.calculateLanguageBytes() } returns mockData
+        every { repository.getLanguageUsagePercentages() } returns mockData
     }
 
     @Test
     fun `Should produce the right Language percentages`() {
         val expected = mapOf(
-            "language_a" to 0.1,
+            "language_a" to 0.7,
             "language_b" to 0.6,
             "language_c" to 0.3
         )
@@ -35,14 +36,18 @@ internal class CodeStatsServiceImplTest {
     }
 
     companion object {
-        val mockData = mapOf(
-            1L to mapOf(
-                "language_a" to 10L,
-                "language_b" to 40L,
+        val mockData = listOf(
+            LanguageUsagePercentages(
+                languageName = "language_a",
+                percentage = 0.6892
             ),
-            2L to mapOf(
-                "language_b" to 20L,
-                "language_c" to 30L
+            LanguageUsagePercentages(
+                languageName = "language_b",
+                percentage = 0.0266
+            ),
+            LanguageUsagePercentages(
+                languageName = "language_c",
+                percentage = 0.2841
             )
         )
     }
