@@ -2,7 +2,20 @@ version: "3.9"
 services:
   mariadb:
     image: "mariadb"
-  codestats:
+    environment:
+      MARIADB_USER: user
+      MARIADB_PASSWORD: password
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: rootpassword
+      restart: on-failure
+    volumes:
+      - ${PWD}/mariadb:/var/lib/mysql
+  codestats-web:
+    depends_on:
+      - mariadb
     build: .
+    environment:
+      MARIADB_USER: user
+      MARIADB_PASSWORD: password
     ports:
       - "8080:8080"
+    restart: on-failure
