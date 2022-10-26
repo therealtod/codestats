@@ -12,13 +12,13 @@ class LanguageUsageBytesRepositoryImpl(private val jdbcTemplate: JdbcTemplate): 
 
     override fun deleteAllLanguageUsageBytes() {
         val query = "DELETE FROM $TABLE_NAME"
-        jdbcTemplate.queryForObject(query, Int::class.java)
+        jdbcTemplate.queryForList(query)
     }
 
     override fun bulkInsertLanguageUsageBytes(data: Collection<LanguageUsageBytes>) {
         val entities = data.toList()
 
-        val query = "INSERT INTO $TABLE_NAME VALUES (?, ?)"
+        val query = "INSERT INTO $TABLE_NAME(language_id, bytes) VALUES (?, ?)"
 
         jdbcTemplate.batchUpdate(
             query,

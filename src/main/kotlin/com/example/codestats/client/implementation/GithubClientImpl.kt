@@ -6,6 +6,7 @@ import com.example.codestats.model.dto.GithubOrgReposReply
 import com.example.codestats.model.dto.GithubRepoDetailsReply
 import com.example.codestats.model.dto.RepositoryLanguagesBytesReply
 import io.netty.handler.codec.http.HttpHeaderNames
+import kotlinx.coroutines.reactive.awaitFirst
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.MediaType
@@ -42,7 +43,7 @@ class GithubClientImpl(
             .block() ?: emptyList()
     }
 
-    override fun getRepositoryDetails(url: URL): GithubRepoDetailsReply? {
+    override suspend fun getRepositoryDetails(url: URL): GithubRepoDetailsReply? {
         val request = webClient
             .get()
             .uri(url.toURI())
@@ -51,10 +52,10 @@ class GithubClientImpl(
         return request
             .retrieve()
             .bodyToMono<GithubRepoDetailsReply>()
-            .block()
+            .awaitFirst()
     }
 
-    override fun getRepositoryLanguagesBytes(url: URL): RepositoryLanguagesBytesReply? {
+    override suspend fun getRepositoryLanguagesBytes(url: URL): RepositoryLanguagesBytesReply? {
         val request = webClient
             .get()
             .uri(url.toURI())
@@ -63,11 +64,10 @@ class GithubClientImpl(
         return request
             .retrieve()
             .bodyToMono<RepositoryLanguagesBytesReply>()
-            .block()
+            .awaitFirst()
     }
 
     companion object{
-        private val log: Logger = LoggerFactory.getLogger(GithubClientImpl::class.java)
         private const val TOKEN_PREFIX = "Bearer"
         private const val ORG_SUMMARY_URI = "/orgs/{org_id}/repos"
     }
