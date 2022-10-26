@@ -14,7 +14,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import java.net.URI
 
 @SpringBootTest
-@ActiveProfiles("test")
 internal class APITest : AbstractSpringBootIntegrationTest() {
     private val mapper = ObjectMappers.defaultObjectMapper
 
