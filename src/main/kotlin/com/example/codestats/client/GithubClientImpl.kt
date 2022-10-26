@@ -1,5 +1,6 @@
 package com.example.codestats.client
 
+import com.example.codestats.model.common.GithubToken
 import com.example.codestats.model.dto.GithubOrgReposReply
 import com.example.codestats.model.dto.GithubRepoDetailsReply
 import com.example.codestats.model.dto.RepositoryLanguagesBytesReply
@@ -17,16 +18,14 @@ import java.net.URL
 @Component
 class GithubClientImpl(
     webClientBuilder: WebClient.Builder,
-    environment: Environment
+    githubToken: GithubToken
 ): GithubClient {
     private val _builder = webClientBuilder.clone()
-    private val githubToken = environment.getProperty("GITHUB_TOKEN")
-        ?: throw IllegalStateException("This client needs a GITHUB_TOKEN variable to be set in your environment")
 
     private val webClient = _builder
         .baseUrl("https://api.github.com")
         .defaultHeader(HttpHeaderNames.ACCEPT.toString(), MediaType.APPLICATION_JSON_VALUE)
-        .defaultHeader(HttpHeaderNames.AUTHORIZATION.toString(), "$TOKEN_PREFIX $githubToken" )
+        .defaultHeader(HttpHeaderNames.AUTHORIZATION.toString(), "$TOKEN_PREFIX ${githubToken.tokenString}" )
         .build()
 
     override fun getOrgRepositoriesSummary(orgId: String): GithubOrgReposReply {
