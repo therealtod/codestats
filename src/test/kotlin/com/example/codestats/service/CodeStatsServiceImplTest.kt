@@ -27,9 +27,9 @@ internal class CodeStatsServiceImplTest {
     @Test
     fun `Should produce the right Language percentages`() {
         val expected = mapOf(
-            "language_a" to 0.7,
-            "language_b" to 0.6,
-            "language_c" to 0.3
+            "language_a" to 0.71,
+            "language_b" to 0.04,
+            "language_c" to 0.25
         )
         val actual = service.getLanguagePercentages()
 
@@ -40,15 +40,15 @@ internal class CodeStatsServiceImplTest {
         val mockData = listOf(
             LanguageUsagePercentages(
                 languageName = "language_a",
-                percentage = 0.6892
+                percentage = 0.71
             ),
             LanguageUsagePercentages(
                 languageName = "language_b",
-                percentage = 0.0266
+                percentage = 0.04
             ),
             LanguageUsagePercentages(
                 languageName = "language_c",
-                percentage = 0.2841
+                percentage = 0.25
             )
         )
     }
