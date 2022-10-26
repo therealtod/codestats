@@ -1,6 +1,7 @@
 package com.example.codestats.repository
 
 import com.example.codestats.model.RepositoryId
+import com.example.codestats.model.tableRow.LanguageUsagePercentages
 import com.example.codestats.model.tableRow.RepositoryData
 import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.repository.CrudRepository
@@ -15,4 +16,21 @@ interface GitHubRepoRepository : CrudRepository<RepositoryData, Long>{
         languageId: Long,
         bytes: Long
     )
+
+    @Query("""
+        SELECT
+            pl.language_name ,
+            (SUM(lub.bytes)/(
+            SELECT
+                SUM(bytes) TOTAL) percentage
+            FROM
+                language_usage_bytes lub)
+        FROM
+            prog_language pl
+        JOIN language_usage_bytes lub ON
+            pl.language_id = lub.language_id
+        GROUP BY
+            pl.language_name
+    """)
+    fun getLanguageUsagePercentages(): Collection<LanguageUsagePercentages>
 }
