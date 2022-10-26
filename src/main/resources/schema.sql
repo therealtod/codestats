@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS repository(
     repository_id BIGINT NOT NULL AUTO_INCREMENT,
+    github_id BIGINT NOT NULL,
     PRIMARY KEY (repository_id)
 );
 
