@@ -6,7 +6,7 @@ import com.example.codestats.model.tableRow.LanguageUsageBytes
 object LanguageUsageBytesFactory {
     fun createLanguageUsageBytes(
         repositoryId: RepositoryId,
-        languageId: String,
+        languageId: Long,
         bytes: Long
     ): LanguageUsageBytes {
         return LanguageUsageBytes(

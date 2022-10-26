@@ -1,6 +1,7 @@
 package com.example.codestats.service.impl
 
 import com.example.codestats.LanguageFactory
+import com.example.codestats.LanguageUsageBytesFactory
 import com.example.codestats.RepositoryDataFactory
 import com.example.codestats.model.bom.GithubRepository
 import com.example.codestats.model.tableRow.Language
@@ -53,7 +54,7 @@ class PersistenceServiceImpl(
                 val language = languagesMap[it.key]
                     ?: throw IllegalStateException("No stored language with name ${it.key}")
                 val bytes = it.value
-                val dbEntry = LanguageUsageBytes(
+                val dbEntry = LanguageUsageBytesFactory.createLanguageUsageBytes(
                     repositoryId = repository.repositoryId,
                     languageId = language.languageId,
                     bytes = bytes

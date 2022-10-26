@@ -14,14 +14,14 @@ data class LanguageUsageBytes(
     @Column("repository_id")
     val repositoryId: RepositoryId,
     @Column("language_id")
-    val languageId: String,
+    val languageId: Long,
     @Column("bytes")
     val bytes: Long
 ){
     @PersistenceCreator
     constructor(
         repositoryId: RepositoryId,
-        languageId: String,
+        languageId: Long,
         bytes: Long
     ) : this (0, repositoryId, languageId, bytes)
 }
