@@ -38,6 +38,12 @@ class PersistenceServiceImpl(
         }
     }
 
+    override fun clearTables() {
+        repoRepository.deleteAllLanguageUsageBytes()
+        languageRepository.deleteAll()
+        repoRepository.deleteAll()
+    }
+
     private fun createLanguageUsageDBEntities(
         data: Iterable<GithubRepository>,
         repositoryData: Iterable<RepositoryData>,

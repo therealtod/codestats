@@ -34,4 +34,9 @@ interface GitHubRepoRepository : CrudRepository<RepositoryData, Long>{
 
     """)
     fun getLanguageUsagePercentages(): Collection<LanguageUsagePercentages>
+
+    @Query("""
+        DELETE FROM language_usage_bytes
+    """)
+    fun deleteAllLanguageUsageBytes()
 }
