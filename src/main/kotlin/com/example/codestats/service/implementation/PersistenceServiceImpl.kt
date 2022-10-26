@@ -1,4 +1,4 @@
-package com.example.codestats.service.impl
+package com.example.codestats.service.implementation
 
 import com.example.codestats.LanguageFactory
 import com.example.codestats.LanguageUsageBytesFactory

@@ -1,9 +1,8 @@
-package com.example.codestats.service
+package com.example.codestats.service.implementation
 
-import com.example.codestats.model.LanguageName
 import com.example.codestats.model.dto.LanguagePercentages
-import com.example.codestats.model.tableRow.LanguageUsagePercentages
 import com.example.codestats.repository.GitHubRepoRepository
+import com.example.codestats.service.CodeStatsService
 import org.springframework.stereotype.Service
 
 @Service

@@ -1,4 +1,4 @@
-package com.example.codestats.service.impl
+package com.example.codestats.service.implementation
 
 import com.example.codestats.client.GithubClient
 import com.example.codestats.model.bom.GithubRepository

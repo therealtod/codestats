@@ -2,6 +2,7 @@ package com.example.codestats.service
 
 import com.example.codestats.model.tableRow.LanguageUsagePercentages
 import com.example.codestats.repository.GitHubRepoRepository
+import com.example.codestats.service.implementation.CodeStatsServiceImpl
 import io.mockk.every
 import io.mockk.junit5.MockKExtension
 import io.mockk.mockk

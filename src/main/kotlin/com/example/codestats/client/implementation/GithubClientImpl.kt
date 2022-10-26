@@ -1,14 +1,13 @@
-package com.example.codestats.client
+package com.example.codestats.client.implementation
 
+import com.example.codestats.client.GithubClient
 import com.example.codestats.model.common.GithubToken
 import com.example.codestats.model.dto.GithubOrgReposReply
 import com.example.codestats.model.dto.GithubRepoDetailsReply
 import com.example.codestats.model.dto.RepositoryLanguagesBytesReply
-import com.example.codestats.scheduledtasks.GithubDataFetchTasks
 import io.netty.handler.codec.http.HttpHeaderNames
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.core.env.Environment
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
