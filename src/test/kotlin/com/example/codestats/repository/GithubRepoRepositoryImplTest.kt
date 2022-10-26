@@ -11,7 +11,7 @@ import org.springframework.test.context.jdbc.Sql
 @SpringBootTest
 class GithubRepoRepositoryImplTest: AbstractSpringBootIntegrationTest() {
     @Autowired
-    private lateinit var repository: GitHubRepoRepository
+    private lateinit var repository: LanguageRepository
 
     @Test
     @Sql("classpath:populate_test_db.sql")

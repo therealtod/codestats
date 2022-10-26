@@ -1,7 +1,7 @@
 package com.example.codestats.service
 
 import com.example.codestats.model.tableRow.LanguageUsagePercentages
-import com.example.codestats.repository.GitHubRepoRepository
+import com.example.codestats.repository.LanguageRepository
 import com.example.codestats.service.implementation.CodeStatsServiceImpl
 import io.mockk.every
 import io.mockk.junit5.MockKExtension
@@ -16,7 +16,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class CodeStatsServiceImplTest {
 
-    private val repository: GitHubRepoRepository = mockk()
+    private val repository: LanguageRepository = mockk()
     private val service = CodeStatsServiceImpl(repository)
 
     @BeforeAll
