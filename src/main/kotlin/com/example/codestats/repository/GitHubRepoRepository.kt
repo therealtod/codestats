@@ -22,15 +22,16 @@ interface GitHubRepoRepository : CrudRepository<RepositoryData, Long>{
             pl.language_name ,
             (SUM(lub.bytes)/(
             SELECT
-                SUM(bytes) TOTAL) percentage
+                SUM(bytes) TOTAL
             FROM
-                language_usage_bytes lub)
+                language_usage_bytes lub)) percentage
         FROM
             prog_language pl
         JOIN language_usage_bytes lub ON
             pl.language_id = lub.language_id
         GROUP BY
             pl.language_name
+
     """)
     fun getLanguageUsagePercentages(): Collection<LanguageUsagePercentages>
 }
