@@ -17,7 +17,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 internal class CodeStatsServiceImplTest {
 
     private val repository: LanguageRepository = mockk()
-    private val service = CodeStatsServiceImpl(repository)
+    private val service = CodeStatsServiceImpl(repository, 2)
 
     @BeforeAll
     fun setUp() {
@@ -29,7 +29,7 @@ internal class CodeStatsServiceImplTest {
         val expected = mapOf(
             "language_a" to 0.71,
             "language_b" to 0.04,
-            "language_c" to 0.25
+            "language_c" to 0.26
         )
         val actual = service.getLanguagePercentages()
 
@@ -40,15 +40,15 @@ internal class CodeStatsServiceImplTest {
         val mockData = listOf(
             LanguageUsagePercentages(
                 languageName = "language_a",
-                percentage = 0.71
+                percentage = 0.713
             ),
             LanguageUsagePercentages(
                 languageName = "language_b",
-                percentage = 0.04
+                percentage = 0.045
             ),
             LanguageUsagePercentages(
                 languageName = "language_c",
-                percentage = 0.25
+                percentage = 0.262
             )
         )
     }

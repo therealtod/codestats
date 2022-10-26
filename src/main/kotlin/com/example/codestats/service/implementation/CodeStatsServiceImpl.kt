@@ -16,7 +16,7 @@ class CodeStatsServiceImpl(
     override fun getLanguagePercentages(): LanguagePercentages {
         val dbPercentages = languageRepository.getLanguageUsagePercentages()
         return dbPercentages
-            .filter { it.percentage >= 1.0/(10*allowedDecimals) }
+            .filter { it.percentage >= 1.0/(100*allowedDecimals) }
             .associate{ Pair(it.languageName, it.percentage.round(allowedDecimals)) }.toMap()
     }
 }
