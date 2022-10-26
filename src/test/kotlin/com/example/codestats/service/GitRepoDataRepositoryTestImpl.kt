@@ -1,7 +1,6 @@
 package com.example.codestats.service
 
-import com.example.codestats.model.tableRow.LanguageBytes
-import com.example.codestats.repository.GitRepoDataRepository
+import com.example.codestats.model.common.LanguageBytes
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository
 
