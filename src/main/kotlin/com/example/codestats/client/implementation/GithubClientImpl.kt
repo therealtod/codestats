@@ -23,7 +23,7 @@ class GithubClientImpl(
     private val _builder = webClientBuilder.clone()
 
     private val webClient = _builder
-        .baseUrl("https://api.github.com")
+        .baseUrl(BASE_URL)
         .defaultHeader(HttpHeaderNames.ACCEPT.toString(), MediaType.APPLICATION_JSON_VALUE)
         .defaultHeader(HttpHeaderNames.AUTHORIZATION.toString(), "$TOKEN_PREFIX ${githubToken.tokenString}" )
         .build()
@@ -70,5 +70,6 @@ class GithubClientImpl(
     companion object{
         private const val TOKEN_PREFIX = "Bearer"
         private const val ORG_SUMMARY_URI = "/orgs/{org_id}/repos"
+        private const val BASE_URL = "https://api.github.com"
     }
 }
