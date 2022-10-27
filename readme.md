@@ -25,6 +25,25 @@ The Server response looks like:
 "TypeScript": 0.6892
 }
 
+## Spring boot configuration
+
+It's possible to edit the following propeties in order to modify the behaviour of the application:
+
+```bash
+  codestats.language.percentages.precision.decimals
+```
+
+Determines how many decimals will be displayed the values in the endpoint. Languages with a share lower than 1/000 of 
+this value will be filtered out
+
+```bash
+  codestats.target.orgid
+```
+
+determines the github organization whose language percentages over public repositories will be computed. Defaults to 
+productboard
+
+
 
 
 
