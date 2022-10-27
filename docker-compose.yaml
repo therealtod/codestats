@@ -1,21 +1,26 @@
-version: "3.9"
+version: "3.8"
 services:
   mariadb:
-    image: "mariadb"
-    environment:
-      MARIADB_USER: user
-      MARIADB_PASSWORD: password
-      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: rootpassword
-      restart: on-failure
+    image: "mariadb:latest"
+    restart: on-failure
     volumes:
-      - ${PWD}/mariadb:/var/lib/mysql
-  codestats-web:
+      - dbdata:/var/lib/mysql
+    ports:
+      - 3306:3306
+  codestats-e:
     depends_on:
       - mariadb
     build: .
+    env_file: ./.env
     environment:
-      MARIADB_USER: user
-      MARIADB_PASSWORD: password
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url" : "jdbc:mariadb://mariadb:3306/codestats",
+        "spring.datasource.username" : "${MARIADB_USER}",
+        "spring.datasource.password" : "${MARIADB_PASSWORD}"
+      }'
     ports:
-      - "8080:8080"
+      - 8080:8080
     restart: on-failure
+volumes:
+  dbdata:
+
