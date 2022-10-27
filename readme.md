@@ -17,6 +17,7 @@ The default organisation is ProductBoard
 
 The Server response looks like:
 
+```bash
 {
 "CSS": 0.0044,
 "HTML": 0.0049,
@@ -24,6 +25,7 @@ The Server response looks like:
 "Ruby": 0.0266,
 "TypeScript": 0.6892
 }
+```
 
 ## Spring boot configuration
 
