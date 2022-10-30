@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   mariadb:
+    env_file: ./.env
     image: "mariadb:latest"
     restart: on-failure
     volumes:
